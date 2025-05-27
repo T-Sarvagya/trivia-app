@@ -1,40 +1,50 @@
+.main-layout {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 2rem auto;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #f5f5f5;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #2c3e50;
-}
-
-.input-section {
+.left-pane,
+.right-pane {
+  flex: 1 1 45%;
   display: flex;
- /* flex-wrap: wrap;*/
   flex-direction: column;
   gap: 2rem;
-  justify-content: space-between;
 }
 
 .input-block{
-   flex: 1 1 30%;
    display: flex;
    flex-direction: column;
-   min-width: 250px;
 }
 
-.input-block label {
-  font-weight: bold;
+.output-section{
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   border-left: 2px solid #ddd;
+   padding-left: 1rem;
+}
+
+.output-section h2{
+   margin-bottom: 0.5rem;
+   color: #2c3e50;
+}
+
+.left-pane h2{
+   margin-bottom: 0.5rem;
+   color: #2c3e50;
 }
 
 .input-block input {
@@ -46,28 +56,17 @@ h1 {
   border-radius: 8px;
 }
 
+.input-block label{
+   font-weight: bold;
+   color: #354b60 ;
+}
+
 .trivia-box {
   margin-top: 1rem;
   background-color: #ecf0f1;
   padding: 1rem;
   border-radius: 8px;
   color: #2c3e50;
-}
-
-.input-block button{
-
-   margin-top: 0.5rem;
-   padding: 0.6rem 1.2rem;
-   background-color: #2980b9;
-   color: white;
-   font-weight: bold;
-   border: none;
-   border-radius: 8px;
-   cursor: pointer;
-}
-
-.input-block button:hover{
-   background-color: #3498db;
 }
 
 input.error{
@@ -82,7 +81,12 @@ input.error{
 }
 
 @media screen and (max-width: 768px) {
-   .input-block {
-       flex: 1 1 100%;
+   .main-layout {
+      flex-direction: column;
+   }
+
+   .left-pane,
+   .right-pane {
+      flex: 1 1 100%;
    }
 }

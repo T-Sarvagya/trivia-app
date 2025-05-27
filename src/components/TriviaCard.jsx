@@ -1,5 +1,10 @@
 import React from "react";
 
-export function TriviaCard({text}) {
-    return text ? <div className="trivia-box">{text}</div> : null;
+export function TriviaCard({text, label}) {
+    return (
+        <div className="trivia-box">
+            <strong>{label}:</strong>
+            <div>{text}</div>
+        </div>
+    );
 }

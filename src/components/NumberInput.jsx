@@ -1,43 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { TriviaCard } from "./TriviaCard";
+import React, { useState } from "react";
 import { isValidNumber } from "../utils/validators";
 
-export function NumberInput() {
+export function NumberInput({ setTrivia }) {
   const [value, setValue] = useState("");
-  const [trivia, setTrivia] = useState("");
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (value === "") {
+  const handleChange = (e) => {
+    const newValue = e.target.value;
+    setValue(newValue);
+
+    if (newValue === "") {
       setError("");
       setTrivia("");
-      return;
-    }
-
-    if (!isValidNumber(value)) {
+    } else if (!isValidNumber(newValue)) {
       setError("Please enter a valid number.");
       setTrivia("");
     } else {
       setError("");
-      fetch(`http://numbersapi.com/${value}`)
+      fetch(`http://numbersapi.com/${newValue}`)
         .then((res) => res.text())
         .then((text) => setTrivia(text))
         .catch(() => setTrivia("Failed to fetch trivia."));
     }
-  }, [value]);
+  };
 
   return (
     <div className="input-block">
-      <label>General Number:</label>
+      <label>Number Trivia:</label>
       <input
         type="text"
         placeholder="e.g. 42"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleChange}
         className={error ? "error" : ""}
       />
       {error && <div className="error-message">{error}</div>}
-      <TriviaCard text={trivia} />
     </div>
   );
 }
