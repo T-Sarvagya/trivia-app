@@ -6,9 +6,9 @@ import { TriviaPanel } from "./components/TriviaPanel";
 import "./App.css";
 
 export function App() {
-  const [numberTrivia, setNumberTrivia] = useState("");
-  const [dateTrivia, setDateTrivia] = useState("");
-  const [mathTrivia, setMathTrivia] = useState("");
+  const [numberTrivia, setNumberTrivia] = useState("Please enter a number for Number Trivia");
+  const [dateTrivia, setDateTrivia] = useState("Please enter date for Date Trivia");
+  const [mathTrivia, setMathTrivia] = useState("Please enter a number for Math Trivia");
 
   return (
     <div className="main-layout">

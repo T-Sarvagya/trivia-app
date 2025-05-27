@@ -11,10 +11,10 @@ export function MathInput({ setTrivia }) {
 
     if (newValue === "") {
       setError("");
-      setTrivia("");
+      setTrivia("Please enter a number for Math Trivia");
     } else if (!isValidNumber(newValue)) {
       setError("Please enter a valid number.");
-      setTrivia("");
+      setTrivia("Please enter a number for Math Trivia");
     } else {
       setError("");
       fetch(`http://numbersapi.com/${newValue}/math`)

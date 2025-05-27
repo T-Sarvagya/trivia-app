@@ -11,12 +11,12 @@ export function DateInput({ setTrivia }) {
 
     if (newValue === "") {
       setError("");
-      setTrivia("");
+      setTrivia("Please enter date for Date Trivia");
     } else {
       const dateParts = parseDateInput(newValue);
       if (!dateParts) {
         setError("Please enter a valid date in MM-DD or YYYY-MM-DD format.");
-        setTrivia("");
+        setTrivia("Please enter date for Date Trivia");
       } else {
         setError("");
         const [month, day] = dateParts;
